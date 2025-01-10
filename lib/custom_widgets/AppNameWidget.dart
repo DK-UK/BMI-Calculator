@@ -15,14 +15,14 @@ class Appnamewidget extends StatelessWidget {
       children: [
          Text("BMI",
               style: TextStyle(
-                color: const Color.fromARGB(255, 68, 87, 255),
+                color: themeColor(),
                 fontSize: 20,
                 fontWeight: FontWeight.bold
               ),),
 
 Text("Buddy",
               style: TextStyle(
-                color: const Color.fromARGB(255, 68, 87, 255),
+                color: themeColor(),
                 fontSize: 20,
               ),),
 
@@ -30,3 +30,5 @@ Text("Buddy",
     );
   }
 }
+
+Color themeColor() => Color.fromARGB(255, 68, 87, 255);

@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/calculator.dart';
 import 'package:bmi_calculator/custom_widgets/AppNameWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -38,35 +39,46 @@ class _InfoScreenState extends State<Infoscreen> {
               ),
               child : Column(
                 children : [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 20, 12, 12),
-                      child: RichText(
-                        text: TextSpan(
-                                        
-                          children: [
-                            TextSpan(
-                              text: "Unveiling the \n Secrets",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold
-                              )
-                            ),
-                            TextSpan(
-                              text: " of Your Body's Balance!",
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w300
-                              )
-                            ),
-                           
-                          ]
-                      )),
+                  
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 12, 12),
+                        child: RichText(
+                          text: TextSpan(
+                                          
+                            children: [
+                              TextSpan(
+                                text: "Unveiling the \n Secrets",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold
+                                )
+                              ),
+                              TextSpan(
+                                text: " of Your Body's Balance!",
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w300
+                                )
+                              ),
+                             
+                            ]
+                        )),
+                      ),
                     ),
 
-                    Text("Easily calculate your BodyMass Index (BMI) by entering your height and weight.",
-                    style: TextStyle(
-                      color: Colors.white
-                    ),),
+
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                       padding: const EdgeInsets.fromLTRB(20, 0, 12, 12),
+                        child: Text("Easily calculate your BodyMass Index (BMI) by entering your height and weight.",
+                        style: TextStyle(
+                          color: Colors.white
+                        ),),
+                      ),
+                    ),
 
 
                     Padding(
@@ -86,7 +98,9 @@ class _InfoScreenState extends State<Infoscreen> {
                           textColor: Colors.white,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
-                        
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                                return Calculator();
+                            }));
                         }, child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text("Get started"),
