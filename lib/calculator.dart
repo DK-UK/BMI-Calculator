@@ -89,7 +89,7 @@ class _CalculatorState extends State<Calculator> {
                     var dob = await showDatePicker(
                         context: context,
                         firstDate: DateTime(1900),
-                        lastDate: DateTime(2025));
+                        lastDate: DateTime(DateTime.now().year));
                       
                       DOB = "${dob?.day}/${dob?.month}/${dob?.year}";
                     years = calculateBOD(dob!);
@@ -192,13 +192,13 @@ class _CalculatorState extends State<Calculator> {
                 child: MaterialButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
-                    color: Colors.blueAccent,
+                    color: themeColor(),
                     textColor: Colors.white,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: Text("Calculate BMI"),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (name.isEmpty) {
                         errorName = "Name is required";
                       } else if (address.isEmpty) {
@@ -211,7 +211,8 @@ class _CalculatorState extends State<Calculator> {
                         errorWeight = "Invalid weight";
                       } else {
                         var bmi = (weight / ((height / 100) * (height / 100)));
-                        BMIResult result = BMIResult(name, address, years, height, weight, bmi);
+                        var bmiCategory = await getBmiResult(bmi);
+                        BMIResult result = BMIResult(name, address, years, height, weight, bmi, bmiCategory);
                         Navigator.push(context, MaterialPageRoute(builder: (context){
                           return Bmiresultscreen(result: result,);
                         }));
@@ -237,7 +238,7 @@ int calculateBOD(DateTime date) {
 
 class BMIResult {
   const BMIResult(this.name, this.address, this.years, this.height, this.weight,
-      this.bmiValue);
+      this.bmiValue, this.bmiCategory);
 
   final String name;
 
@@ -250,4 +251,6 @@ class BMIResult {
   final double weight;
 
   final double bmiValue;
+
+  final BMICategory bmiCategory;
 }

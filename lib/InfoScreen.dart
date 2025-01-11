@@ -34,7 +34,7 @@ class _InfoScreenState extends State<Infoscreen> {
             child: Container(
               width : double.infinity,
               decoration: BoxDecoration(
-                color: Colors.blueAccent,
+                color: themeColor(),
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50))
               ),
               child : Column(
