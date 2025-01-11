@@ -17,6 +17,7 @@ class Bmiresultscreen extends StatelessWidget {
         title: Appnamewidget(appNameAlignment: MainAxisAlignment.start),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
         child: Column(
           children: [
             Card(

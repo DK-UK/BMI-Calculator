@@ -45,7 +45,7 @@ class _CalculatorState extends State<Calculator> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 10,
@@ -195,7 +195,7 @@ class _CalculatorState extends State<Calculator> {
                     color: themeColor(),
                     textColor: Colors.white,
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      padding: EdgeInsets.fromLTRB(0, 18, 0, 18),
                       child: Text("Calculate BMI"),
                     ),
                     onPressed: () async {

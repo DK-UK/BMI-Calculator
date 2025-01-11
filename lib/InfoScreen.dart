@@ -102,7 +102,7 @@ class _InfoScreenState extends State<Infoscreen> {
                                 return Calculator();
                             }));
                         }, child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.fromLTRB(0, 18, 0, 18),
                           child: Text("Get started"),
                         )),
                       ),
